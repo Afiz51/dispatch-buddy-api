@@ -4,7 +4,7 @@ info:
   title: dispatch_buddy
   contact: {}
 host: dispatch-buddy.herokuapp.com
-basePath: /auth/user
+basePath: /api/v1
 securityDefinitions: {}
 schemes:
   - https
@@ -13,7 +13,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /create:
+  /auth/user/create:
     post:
       description: >-
         **Required parameter to create a rider account**
@@ -109,7 +109,7 @@ paths:
           description: ""
           headers: {}
       security: []
-  /verify-email:
+  /auth/user/verify-email:
     post:
       summary: verify email
       tags:
@@ -130,7 +130,7 @@ paths:
           description: ""
           headers: {}
       security: []
-  /login:
+  /auth/user/login:
     post:
       summary: user login
       tags:
@@ -151,7 +151,7 @@ paths:
           description: ""
           headers: {}
       security: []
-  /forgot-password:
+  /auth/user/forgot-password:
     post:
       summary: forgot password
       tags:
@@ -172,7 +172,7 @@ paths:
           description: ""
           headers: {}
       security: []
-  /reset-password:
+  /auth/user/reset-password:
     post:
       summary: reset password
       tags:
@@ -207,6 +207,7 @@ paths:
         "200":
           description: ""
           headers: {}
+
 definitions:
   verifyemailrequest:
     title: verifyemailrequest
