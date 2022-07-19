@@ -13,7 +13,7 @@ const {
   endRide,
 } = require("../controllers/rider.controller");
 
-router.get("/riderEarnings", riderEarnings);
+router.post("/riderEarnings", riderEarnings);
 router.get("/history/:id", rideHistory);
 router.post("/bid", createBid);
 router.put("/status/:id", bidStatus);

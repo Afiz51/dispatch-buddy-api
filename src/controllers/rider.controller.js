@@ -90,6 +90,7 @@ const viewRequest = async (req, res) => {
 const AcceptRequest = async (req, res) => {
   try {
     const order = await Order.findById(req.body.id);
+    console.log(order);
     if (!order) return res.status(404).send("Order not found");
     console.log(req.body.id);
     order.orderStatus = "Accepted";
