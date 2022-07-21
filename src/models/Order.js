@@ -28,6 +28,9 @@ const orderSchema = new mongoose.Schema(
       enum: ["Pending", "Accepted", "Delivered"],
       default: "Pending",
     },
+    rider: {
+      type: Object,
+    },
     startTrip: {
       type: String,
       default: "",

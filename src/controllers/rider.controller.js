@@ -90,10 +90,13 @@ const viewRequest = async (req, res) => {
 const AcceptRequest = async (req, res) => {
   try {
     const order = await Order.findById(req.body.id);
+    const rider = await User.findById(req.body.riderId);
     console.log(order);
     if (!order) return res.status(404).send("Order not found");
+    if (!rider) return res.status(404).send("Rider not found");
     console.log(req.body.id);
     order.orderStatus = "Accepted";
+    order.rider = rider;
     order.startTrip = new Date();
 
     order.save();
