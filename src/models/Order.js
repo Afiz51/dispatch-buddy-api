@@ -23,6 +23,14 @@ const orderSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please enter drop off phone number"],
     },
+    package: {
+      type: String,
+      required: [true, "Please enter a package to deliver"],
+    },
+    dropOffContactName: {
+      type: String,
+      required: [true, "Please enter drop-off contact name"],
+    },
     orderStatus: {
       type: String,
       enum: ["Pending", "Accepted", "Delivered"],
