@@ -59,8 +59,10 @@ cloudinary.config({
 });
 
 // Connect to MongoDB
-const dbUrl = `mongodb+srv://${database_userName}:${database_password}@cluster0.ir60w.mongodb.net/?retryWrites=true&w=majority`;
+const dbUrl = `mongodb+srv://${database_userName}:${database_password}@mycluster.vqt5ez9.mongodb.net/?retryWrites=true&w=majority`;
 connectDB(dbUrl);
+// const db = "mongodb://localhost:27017/dispatch-buddy";
+// connectDB(db);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
