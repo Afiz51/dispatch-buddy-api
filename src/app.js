@@ -14,6 +14,7 @@ const userAuthRouter = require("./routes/auth/user");
 const orderRoute = require("./routes/orderRoute");
 const riderRoute = require("./routes/riderRoute");
 const distanceMatrixRoute = require("./routes/distanceMatrixRoute");
+const destinationRoute = require("./routes/destinationRoute");
 const transactionRoute = require("./routes/transactionRoute");
 
 const swaggerUI = require("swagger-ui-express");
@@ -37,10 +38,12 @@ app.use(express.static("./public"));
 // Routes
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 app.use("/api/v1/auth", userAuthRouter);
-app.use("/api/v1/order", [orderRoute]);
+app.use("/api/v1/order", orderRoute);
 app.use("/api/v1/rider", riderRoute);
-app.use("/", transactionRoute);
 app.use("/api/v1/distance", distanceMatrixRoute);
+app.use("/api/v1/destination", destinationRoute);
+
+app.use("/", transactionRoute);
 
 // middleware
 const notFoundMiddleware = require("./middleware/notFound");
@@ -56,10 +59,8 @@ cloudinary.config({
 });
 
 // Connect to MongoDB
-const dbUrl = `mongodb+srv://${database_userName}:${database_password}@mycluster.vqt5ez9.mongodb.net/?retryWrites=true&w=majority`;
+const dbUrl = `mongodb+srv://${database_userName}:${database_password}@cluster0.ir60w.mongodb.net/?retryWrites=true&w=majority`;
 connectDB(dbUrl);
-// const db = "mongodb://localhost:27017/dispatch-buddy";
-// connectDB(db);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
